@@ -1,8 +1,81 @@
+import tree.Tree;
+
 import java.util.Stack;
 
 public class BinaryTreeErgodic {
 
+    /**
+     * 先序递归
+     * @param biTree
+     */
+    public static void preOrderRecursive(TreeNote biTree) {
+        System.out.print(biTree.value+",");
 
+        TreeNote leftTree = biTree.left;
+        if(leftTree != null) {
+            preOrderRecursive(leftTree);
+        }
+        TreeNote rightTree = biTree.right;
+        if(rightTree != null) {
+            preOrderRecursive(rightTree);
+        }
+    }
+
+    /**
+     * 先序非递归
+     * @param biTree
+     */
+    public static void preOrderUnRecursive(TreeNote biTree) {
+
+        Stack<TreeNote> stack = new Stack<>();
+        while (biTree != null || !stack.empty()) {
+            while (biTree != null) {
+                System.out.print(biTree.value+",");
+                stack.push(biTree);
+                biTree = biTree.left;
+            }
+            if(!stack.isEmpty()){
+                biTree = stack.pop();
+                biTree = biTree.right;
+            }
+
+        }
+    }
+    /**
+     * 中序递归
+     */
+    public static void midOrderRecursive(TreeNote biTree) {
+        if(biTree == null) {
+            return;
+        }
+        midOrderRecursive(biTree.left);
+        System.out.print(biTree.value+",");
+        midOrderRecursive(biTree.right);
+    }
+
+    /**
+     * 中序非递归
+     * @param biTree
+     */
+    public static void midOrderUnRecursive(TreeNote biTree) {
+        Stack<TreeNote> stack = new Stack<>();
+        while(biTree != null || !stack.isEmpty()) {
+            while (biTree != null) {
+                stack.push(biTree);
+                biTree = biTree.left;
+            }
+            if(!stack.isEmpty()) {
+                biTree = stack.pop();
+                System.out.print(biTree.value+",");
+                biTree = biTree.right;
+            }
+        }
+    }
+
+    /**
+     * 后序递归
+     * @param biTree
+     */
     public static void postOrderRecursive(TreeNote biTree){
 
         if(biTree == null) {
@@ -12,7 +85,11 @@ public class BinaryTreeErgodic {
         postOrderRecursive(biTree.right);
         System.out.print(biTree.value+",");
     }
-    //unrecursive way 后序遍历非递归实现
+
+    /**
+     * 后序非递归
+     * @param biTree
+     */
     public static void postOrderErgodic(TreeNote biTree) {
 
         if(biTree == null) {

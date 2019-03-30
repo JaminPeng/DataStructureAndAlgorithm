@@ -29,10 +29,20 @@ public class TreeNote {
             if(i*2+2 < 10)
                 node[i].right = node[i*2+2];
         }
-
+        // 后序遍历
         BinaryTreeErgodic.postOrderErgodic(node[0]);
         System.out.println();
         BinaryTreeErgodic.postOrderRecursive(node[0]);
+        System.out.println();
+        // 先序遍历
+        BinaryTreeErgodic.preOrderRecursive(node[0]);
+        System.out.println();
+        BinaryTreeErgodic.preOrderUnRecursive(node[0]);
+        System.out.println();
+        // 中序遍历
+        BinaryTreeErgodic.midOrderRecursive(node[0]);
+        System.out.println();
+        BinaryTreeErgodic.midOrderUnRecursive(node[0]);
     }
 
 }
