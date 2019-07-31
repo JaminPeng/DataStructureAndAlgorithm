@@ -1,7 +1,5 @@
 package string;
 
-import java.util.Arrays;
-
 public class BM {
 
     public static void main(String[] args) {
