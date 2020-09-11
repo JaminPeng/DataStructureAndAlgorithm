@@ -42,8 +42,9 @@ public class CountSort {
         int[] r = new int[n];
 
         //计算排序的关键步骤，比较难理解
+        //c数组的index是原始数组的值，C数组的值是原始数组每个值个数的不断累计
         for(int i=n-1; i>=0; i--) {
-            // 拿到以a数组对应值为key 求出 c数组中的对应的value(index)
+            // 拿到以a数组对应值为key 求出 c数组中的对应的value，也就是原始数组每个值个数的累计
             int index = c[a[i]]-1;
             // 这个index作为r数组的key，value是a数组的值
             r[index] = a[i];

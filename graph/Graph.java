@@ -24,7 +24,7 @@ public class Graph { //无向图
         for(int i=0; i< graph.adj.length; i++) {
             System.out.println(i+",List:"+graph.adj[i]);
         }
-//        graph.bfs(0,6);
+        graph.bfs(0,6);
 
         graph.dfs(0,6);
     }

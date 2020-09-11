@@ -1,4 +1,6 @@
-import java.util.Stack;
+import javafx.util.Pair;
+
+import java.util.*;
 
 public class BinaryTreeErgodic {
 
@@ -120,5 +122,73 @@ public class BinaryTreeErgodic {
                 biTree = stack.peek().right;
             }
         }
+    }
+    public static void postOrderTraverse(TreeNote node) {
+        if (node == null) {
+            return;
+        }
+        TreeNote temp = node;
+        Stack<TreeNote> stack = new Stack<>();
+        List<TreeNote> nodes = new ArrayList<>();
+        while (temp != null || !stack.isEmpty()) {
+            if (temp != null) {
+                nodes.add(temp);
+                stack.push(temp);
+                temp = temp.right;
+            } else {
+                TreeNote popNode = stack.pop();
+                temp = popNode.left;
+            }
+        }
+
+        for (int i = nodes.size() - 1; i >= 0; i--) {
+            System.out.print(nodes.get(i).value + " ");
+        }
+    }
+
+    public static void postOrderTraverse2(TreeNote note) {
+        Stack<Pair<TreeNote, Boolean>> ancesters = new Stack<>();
+        ancesters.push(new Pair<>(note, false));
+        while (!ancesters.empty()) {
+            Pair<TreeNote, Boolean> current = ancesters.pop();
+            if(current.getValue() == false) {
+                ancesters.push(new Pair<>(current.getKey(), true));
+                if(current.getKey().right != null) {
+                    ancesters.push(new Pair<>(current.getKey().right, false));
+                }
+                if(current.getKey().left != null) {
+                    ancesters.push(new Pair<>(current.getKey().left, false));
+                }
+            } else {
+                System.out.print(current.getKey().value + " ");
+            }
+
+        }
+    }
+
+    public static List<Integer> getMaxVal(TreeNote note) {
+        if(note == null) {
+            return null;
+        }
+        List<Integer> maxList = new ArrayList<>();
+        Queue<TreeNote> queue = new LinkedList<>();
+        queue.add(note);
+        int num =-1;
+        while (!queue.isEmpty()) {
+            int queueSize = queue.size();
+            for(int i=0; i< queueSize;i++) {
+                TreeNote note1 = queue.poll();
+                num = note1.value> num ? note1.value : num;
+                if(note1.left != null) {
+                    queue.add(note1.left);
+                }
+                if(note1.right != null) {
+                    queue.add(note1.right);
+                }
+            }
+            maxList.add(num);
+        }
+
+        return maxList;
     }
 }

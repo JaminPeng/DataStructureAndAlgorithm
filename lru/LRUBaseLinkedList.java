@@ -166,10 +166,12 @@ public class LRUBaseLinkedList<T> {
 
     public static void main(String[] args) {
         LRUBaseLinkedList list = new LRUBaseLinkedList();
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            list.add(sc.nextInt());
-            list.printAll();
-        }
+//        Scanner sc = new Scanner(System.in);
+//        while (true) {
+//            list.add(sc.nextInt());
+//            list.printAll();
+//        }
+        String ss = "";
+        ss.substring(0,2);
     }
 }

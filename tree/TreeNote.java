@@ -30,19 +30,27 @@ public class TreeNote {
                 node[i].right = node[i*2+2];
         }
         // 后序遍历
-        BinaryTreeErgodic.postOrderErgodic(node[0]);
+        System.out.println("后序遍历:");
+//        BinaryTreeErgodic.postOrderErgodic(node[0]);
+//        System.out.println();
+//        BinaryTreeErgodic.postOrderRecursive(node[0]);
+//        System.out.println();
+        BinaryTreeErgodic.postOrderTraverse(node[0]);
         System.out.println();
-        BinaryTreeErgodic.postOrderRecursive(node[0]);
+        BinaryTreeErgodic.postOrderTraverse2(node[0]);
         System.out.println();
+
         // 先序遍历
-        BinaryTreeErgodic.preOrderRecursive(node[0]);
-        System.out.println();
-        BinaryTreeErgodic.preOrderUnRecursive(node[0]);
-        System.out.println();
-        // 中序遍历
-        BinaryTreeErgodic.midOrderRecursive(node[0]);
-        System.out.println();
-        BinaryTreeErgodic.midOrderUnRecursive(node[0]);
+//        System.out.println("先序遍历:");
+//        BinaryTreeErgodic.preOrderRecursive(node[0]);
+//        System.out.println();
+//        BinaryTreeErgodic.preOrderUnRecursive(node[0]);
+//        System.out.println();
+//        // 中序遍历
+//        System.out.println("中序遍历:");
+//        BinaryTreeErgodic.midOrderRecursive(node[0]);
+//        System.out.println();
+//        BinaryTreeErgodic.midOrderUnRecursive(node[0]);
     }
 
 }
